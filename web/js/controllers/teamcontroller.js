@@ -1,6 +1,5 @@
-anguler.module('app')
-	.controller('TeamCtrl', function(){
-		this.showTeamMetadataSection = function(){
-			$('.team-section').show();
-		}
-	});
+app.controller('TeamController', TeamController);
+
+function TeamController(){
+	this.title = "Teams";
+}
