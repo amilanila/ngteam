@@ -1,13 +1,6 @@
 app.controller('HomeController', HomeController);
 
 function HomeController() {
-	this.title = "Team Manager";
+	//this.title = "Team Manager";
+	this.title = "";
 }
-
-HomeController.prototype.showHideTeam = function(){
-	if(!this.isTeamVisible){
-		this.isTeamVisible = true;
-	} else {
-		this.isTeamVisible = false;
-	}	
-};
