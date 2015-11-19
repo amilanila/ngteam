@@ -7,7 +7,17 @@ function drag(ev) {
 }
 
 function drop(ev) {
+	// drop handling
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    var draggedElement = document.getElementById(data)
+    ev.target.appendChild(draggedElement);
+
+    	// call the addToTeam() function in TeamController
+	var teamScope = angular.element($('#teamPlayers')).scope();
+	teamScope.team.addToTeam($(draggedElement).text());
+
+	// call the removePlayer() function in PlayerController	
+	var playerScope = angular.element($('#playerDrag')).scope();
+	playerScope.player.removePlayerFromPool($(draggedElement).text());
 }

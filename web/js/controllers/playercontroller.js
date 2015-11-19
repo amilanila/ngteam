@@ -28,3 +28,7 @@ PlayerController.prototype.savePlayer = function(){
 	}
 	this.ngLocalStorage.players.push('amila' + Date());
 }
+
+PlayerController.prototype.removePlayerFromPool = function(){
+	this.ngLocalStorage.players.push('amila' + Date());	
+}
