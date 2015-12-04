@@ -22,12 +22,12 @@ PlayerController.prototype.enableAddPlayer = function(){
 	}
 }
 
-PlayerController.prototype.savePlayer = function(name){
-	this.players.add(name);		
+PlayerController.prototype.savePlayer = function(player){
+	this.players.add(player);		
 }
 
 PlayerController.prototype.removePlayer = function(player){
-	this.players.splice(1,1);
+	this.players.remove(player);
 }
 
 

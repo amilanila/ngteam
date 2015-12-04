@@ -8,8 +8,8 @@ app.factory('team', function($localStorage){
 		team.list = $localStorage.team;
 	}
 
-	team.add = function(name){
-		team.list.push(name);
+	team.add = function(player){
+		team.list.push(player);
 		if($localStorage.team === undefined){
 			$localStorage.team = [];
 		}

@@ -17,8 +17,9 @@ app.factory('players', function($localStorage){
 		$localStorage.players = players.list;
 	};
 
-	players.remove = function(id){
-		player.list.splice(1, 1);
+	players.remove = function(player){
+		var index = players.list.indexOf(player);
+		players.list.splice(index, 1);
 	}
 	return players;
 });
