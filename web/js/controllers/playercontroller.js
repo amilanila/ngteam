@@ -26,7 +26,7 @@ PlayerController.prototype.savePlayer = function(name){
 	this.players.add(name);		
 }
 
-PlayerController.prototype.removePlayerFromPool = function(player){
+PlayerController.prototype.removePlayer = function(player){
 	this.players.splice(1,1);
 }
 

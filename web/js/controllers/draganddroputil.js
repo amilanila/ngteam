@@ -17,7 +17,8 @@ function drop(ev) {
 	var teamScope = angular.element($('#teamPlayers')).scope();
 	teamScope.team.addToTeam($(draggedElement).text());
 
-	// // call the removePlayer() function in PlayerController	
-	// var playerScope = angular.element($('#playerDrag')).scope();
-	// playerScope.player.removePlayerFromPool($(draggedElement).text());
+	// call the removePlayer() function in PlayerController	
+	// var playerScope = angular.element($('div[name^=playerDrag]')).scope();
+    var playerScope = angular.element($('#playerListDiv')).scope();
+	playerScope.player.removePlayer($(draggedElement).text());
 }
