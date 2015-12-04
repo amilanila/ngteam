@@ -1,7 +1,7 @@
 app.controller('PlayerController', PlayerController);
 
-function PlayerController($scope, $localStorage){	
-	this.ngLocalStorage = $localStorage;	
+function PlayerController(players){	
+	this.players = players;
 }
 
 PlayerController.prototype.showHidePlayer = function(){
@@ -22,13 +22,12 @@ PlayerController.prototype.enableAddPlayer = function(){
 	}
 }
 
-PlayerController.prototype.savePlayer = function(){
-	if(this.ngLocalStorage.players === undefined){
-		this.ngLocalStorage.players = [];
-	}
-	this.ngLocalStorage.players.push('amila' + Date());
+PlayerController.prototype.savePlayer = function(name){
+	this.players.add(name);		
 }
 
-PlayerController.prototype.removePlayerFromPool = function(){
-	this.ngLocalStorage.players.push('amila' + Date());	
+PlayerController.prototype.removePlayerFromPool = function(player){
+	this.players.splice(1,1);
 }
+
+

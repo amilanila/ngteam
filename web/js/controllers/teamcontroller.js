@@ -1,7 +1,7 @@
 app.controller('TeamController', TeamController);
 
-function TeamController($scope, $localStorage){
-	this.ngLocalStorage = $localStorage;
+function TeamController(team){
+	this.team = team;
 }
 
 TeamController.prototype.showHideTeam = function(){
@@ -13,9 +13,6 @@ TeamController.prototype.showHideTeam = function(){
 };
 
 TeamController.prototype.addToTeam = function(player){
-	if(this.ngLocalStorage.squad === undefined){
-		this.ngLocalStorage.squad = [];
-	}
-	this.ngLocalStorage.squad.push(player);
+	this.team.add(player);
 }
 	

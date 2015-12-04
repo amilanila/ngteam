@@ -13,6 +13,8 @@
 
         <!-- Application -->
         <script src="js/app.js"></script>
+        <script src="js/services/playerservice.js"></script>
+        <script src="js/services/teamservice.js"></script>
         <script src="js/controllers/homecontroller.js"></script>
         <script src="js/controllers/teamcontroller.js"></script>
         <script src="js/controllers/playercontroller.js"></script>
@@ -46,7 +48,7 @@
                         <input class="btn btn-default" type="button" value="Team" ng-click="team.showHideTeam()" />
                         <div class="ng-hide" ng-show="team.isTeamVisible">                            
                             <div id="teamPlayers" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:100px;width:100px;">
-                                <li class="list-group-item" ng-repeat="p in team.ngLocalStorage.squad">
+                                <li class="list-group-item" ng-repeat="p in team.team.list">
                                     <div id="teamDrag" draggable="true" ondragstart="drag(event)">{{p}}</div>
                                 </li>
                             </div>
@@ -61,22 +63,22 @@
                                 <div class="col-xs-6">   
                                     <input class="btn btn-default player-add" type="button" value="+" ng-click="player.enableAddPlayer()">
                                     <div class="ng-hide" ng-show="player.isEnableAddPlayer">
-                                        <form>
+                                        <form ng-submit="player.savePlayer(player.name, player.mobile)">
                                             <div class="form-group">
                                                 <label for="playerName">Name</label>
-                                                <input type="text" class="form-control" id="playerName" placeholder="Name">
+                                                <input type="text" class="form-control" name="playerName" ng-model="player.name" placeholder="Name">
                                             </div>                                    
-                                            <div class="form-group">
+<!--                                             <div class="form-group">
                                                 <label for="playerMobile">Mobile</label>
-                                                <input type="text" class="form-control" id="playerMobile" placeholder="Mobile">
+                                                <input type="text" class="form-control" name="playerMobile" ng-model="player.mobile" placeholder="Mobile">
                                             </div>                                    
-                                            <input class="btn btn-default" type="button" value="Save" ng-click="player.savePlayer()">
+ -->                                            <input class="btn btn-default" type="submit" value="Save">
                                         </form>
                                     </div>
                                 </div>
                                 <div class="col-xs-6">                                      
                                     <ul class="list-group">                            
-                                        <li class="list-group-item" ng-repeat="p in player.ngLocalStorage.players">
+                                        <li class="list-group-item" ng-repeat="p in player.players.list">
                                             <div id="playerDrag" draggable="true" ondragstart="drag(event)">{{p}}</div>
                                         </li>
                                     </ul>
