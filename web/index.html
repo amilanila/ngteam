@@ -79,7 +79,7 @@
                                 <div class="col-xs-6">                                      
                                     <ul class="list-group">                            
                                         <li class="list-group-item" ng-repeat="p in player.players.list">
-                                            <div id="playerDrag" draggable="true" ondragstart="drag(event)">{{p}}</div>
+                                            <div id="playerDrag{{$index}}" draggable="true" ondragstart="drag(event)">{{p}}</div>
                                         </li>
                                     </ul>
                                 </div>
